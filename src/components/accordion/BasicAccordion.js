@@ -5,6 +5,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Board from "../board/Board";
+import Form from "../tasks/Form";
 
 export default function BasicAccordion() {
   return (
@@ -19,9 +20,9 @@ export default function BasicAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+            Create a task from here:
           </Typography>
+          <Form />
         </AccordionDetails>
       </Accordion>
       <Accordion>
