@@ -8,9 +8,9 @@ import Board from "../board/Board";
 import Form from "../tasks/Form";
 
 export default function BasicAccordion({ tasks, addTask, onStatusChange }) {
-  const pendings = tasks.filter(taks => taks.status === 'pending');
-  const executings = tasks.filter(task => task.status === "executing");
-  const finisheds = tasks.filter(task => task.status === 'finished');
+  const pendings = tasks.filter((taks) => taks.status === "pending");
+  const executings = tasks.filter((task) => task.status === "executing");
+  const finisheds = tasks.filter((task) => task.status === "finished");
 
   return (
     <div>
@@ -36,18 +36,14 @@ export default function BasicAccordion({ tasks, addTask, onStatusChange }) {
           <Typography>Kenban Board</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Board pendings={pendings} executings={executings} finisheds={finisheds} onStatusChange={onStatusChange}/>
+          <Board
+            pendings={pendings}
+            executings={executings}
+            finisheds={finisheds}
+            onStatusChange={onStatusChange}
+          />
         </AccordionDetails>
       </Accordion>
-      {/* <Accordion disabled>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3a-content"
-          id="panel3a-header"
-        >
-          <Typography>Disabled Accordion</Typography>
-        </AccordionSummary>
-      </Accordion> */}
     </div>
   );
 }

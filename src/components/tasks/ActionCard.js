@@ -1,20 +1,29 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions, Select, MenuItem } from '@mui/material';
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import {
+//   Button,
+  CardActionArea,
+  CardActions,
+  Select,
+  MenuItem,
+} from "@mui/material";
 
-export default function ActionCard({imgSrc, taskId, title, description, status, onStatusChange, style}) {
+export default function ActionCard({
+  imgSrc,
+  taskId,
+  title,
+  description,
+  status,
+  onStatusChange,
+  style,
+}) {
   return (
     <Card sx={{ maxWidth: 345, ...style }}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image={imgSrc}
-          alt={title}
-        />
+        <CardMedia component="img" height="140" image={imgSrc} alt={title} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {title}
@@ -36,9 +45,9 @@ export default function ActionCard({imgSrc, taskId, title, description, status, 
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        {/* <Button size="small" color="primary">
           Save
-        </Button>
+        </Button> */}
       </CardActions>
     </Card>
   );

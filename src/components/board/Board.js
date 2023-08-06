@@ -9,7 +9,7 @@ const Board = ({ pendings, executings, finisheds, onStatusChange }) => {
         {/* Content of the first column */}
         <h4>Pending</h4>
         {pendings.length > 0 &&
-          pendings.map(({ id, title, description , status}) => {
+          pendings.map(({ id, title, description, status }) => {
             return (
               <ActionCard
                 imgSrc={"/imgs/pending.jpg"}
@@ -17,9 +17,9 @@ const Board = ({ pendings, executings, finisheds, onStatusChange }) => {
                 taskId={id}
                 title={title}
                 description={description}
-                style={{margin: "3rem auto"}}
+                style={{ margin: "3rem auto" }}
                 status={status}
-                onStatusChange = {onStatusChange}
+                onStatusChange={onStatusChange}
               />
             );
           })}
@@ -36,9 +36,9 @@ const Board = ({ pendings, executings, finisheds, onStatusChange }) => {
                 taskId={id}
                 title={title}
                 description={description}
-                style={{margin: "3rem auto"}}
+                style={{ margin: "3rem auto" }}
                 status={status}
-                onStatusChange = {onStatusChange}
+                onStatusChange={onStatusChange}
               />
             );
           })}
@@ -56,7 +56,7 @@ const Board = ({ pendings, executings, finisheds, onStatusChange }) => {
                 title={title}
                 description={description}
                 status={status}
-                style={{margin: "3rem auto"}}
+                style={{ margin: "3rem auto" }}
                 onStatusChange={onStatusChange}
               />
             );

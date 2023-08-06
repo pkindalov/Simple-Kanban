@@ -25,14 +25,14 @@ const Form = ({ addTask }) => {
     if (task.title.trim() !== "") {
       task.id = window.crypto.randomUUID();
       if (!task.date) task.date = format(new Date(), "dd-MM-yyyy");
-      addTask(task); // Call the addTask function from props to add the new task
+      addTask(task); 
       setTask({
         id: "",
-        date: "", // Set date back to an empty string after adding the task
+        date: "",
         title: "",
         description: "",
         status: "pending",
-      }); // Clear the input fields after adding the task
+      }); 
     }
   };
 
@@ -47,12 +47,7 @@ const Form = ({ addTask }) => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setTask({ ...task, [name]: value });
-    // console.log(e.target);
   };
-
-  // const handleStatusChange = (e) => {
-  //   console.log(e.target);
-  // }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -63,8 +58,6 @@ const Form = ({ addTask }) => {
             name="date"
             value={task.date ? new Date(task.date) : new Date()}
             onChange={handleDateChange}
-            // format="dd-MM-yyyy"
-            //   renderInput={(params) => <TextField {...params} className={classes.textField} />}
           />
         </Box>
         <Box mt={2}>
@@ -104,7 +97,6 @@ const Form = ({ addTask }) => {
             variant="outlined"
             fullWidth
             name="description"
-            // style={{ marginBottom: 16 }}
           />
         </Box>
         <Box mt={2}>
