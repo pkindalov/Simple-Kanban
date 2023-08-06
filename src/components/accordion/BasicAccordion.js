@@ -7,10 +7,10 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Board from "../board/Board";
 import Form from "../tasks/Form";
 
-export default function BasicAccordion() {
+export default function BasicAccordion({tasks, addTask}) {
   return (
     <div>
-      <Accordion defaultExpanded={true}>
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -22,10 +22,10 @@ export default function BasicAccordion() {
           <Typography>
             Create a task from here:
           </Typography>
-          <Form />
+          <Form addTask={addTask} />
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion defaultExpanded={true}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"

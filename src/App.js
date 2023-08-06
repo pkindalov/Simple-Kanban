@@ -1,19 +1,26 @@
-import { Container } from '@mui/material';
-import BasicAccordion from './components/accordion/BasicAccordion';
-import './App.css';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
-
+import { Container } from "@mui/material";
+import BasicAccordion from "./components/accordion/BasicAccordion";
+import "./App.css";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import React, { useState } from "react";
 
 function App() {
+  const [tasks, setTasks] = useState([]);
+
+  const addTask = (newTask) => {
+    setTasks([...tasks, newTask]);
+  }
+
+  console.log(tasks);
+
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-    <div className="App">
-      <Container maxWidth="xl">
-      <BasicAccordion />
-      </Container>  
-
-    </div>
+      <div className="App">
+        <Container maxWidth="xl">
+          <BasicAccordion tasks={tasks} addTask={addTask}  />
+        </Container>
+      </div>
     </LocalizationProvider>
   );
 }
