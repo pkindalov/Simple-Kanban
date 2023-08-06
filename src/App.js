@@ -10,7 +10,7 @@ function App() {
 
   const addTask = (newTask) => {
     setTasks([...tasks, newTask]);
-  }
+  };
 
   console.log(tasks);
 
@@ -18,7 +18,7 @@ function App() {
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <div className="App">
         <Container maxWidth="xl">
-          <BasicAccordion tasks={tasks} addTask={addTask}  />
+          <BasicAccordion tasks={tasks} addTask={addTask} />
         </Container>
       </div>
     </LocalizationProvider>

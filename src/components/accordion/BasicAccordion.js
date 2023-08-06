@@ -7,7 +7,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Board from "../board/Board";
 import Form from "../tasks/Form";
 
-export default function BasicAccordion({tasks, addTask}) {
+export default function BasicAccordion({ tasks, addTask }) {
   return (
     <div>
       <Accordion>
@@ -19,9 +19,7 @@ export default function BasicAccordion({tasks, addTask}) {
           <Typography>Add Task</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Create a task from here:
-          </Typography>
+          <Typography>Create a task from here:</Typography>
           <Form addTask={addTask} />
         </AccordionDetails>
       </Accordion>
