@@ -12,6 +12,18 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
+  const handleStatusChange = (taskId, e) => {
+    const newStatus = e.target.value;
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return { ...task, status: newStatus };
+      }
+      return task;
+    });
+
+    setTasks(updatedTasks);
+  };
+
   useEffect(() => {
     console.log(tasks);
   }, [tasks]);
@@ -20,7 +32,7 @@ function App() {
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <div className="App">
         <Container maxWidth="xl">
-          <BasicAccordion tasks={tasks} addTask={addTask} />
+          <BasicAccordion tasks={tasks} addTask={addTask} onStatusChange={handleStatusChange} />
         </Container>
       </div>
     </LocalizationProvider>
