@@ -3,7 +3,7 @@ import BasicAccordion from "./components/accordion/BasicAccordion";
 import "./App.css";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -12,7 +12,9 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
-  console.log(tasks);
+  useEffect(() => {
+    console.log(tasks);
+  }, [tasks]);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>

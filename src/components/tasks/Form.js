@@ -12,6 +12,7 @@ import { format } from "date-fns";
 
 const Form = ({ addTask }) => {
   const [task, setTask] = useState({
+    id: "",
     date: "",
     title: "",
     description: "",
@@ -22,9 +23,11 @@ const Form = ({ addTask }) => {
     e.preventDefault();
     //TODO make validations here
     if (task.title.trim() !== "") {
+      task.id = window.crypto.randomUUID();
       if (!task.date) task.date = format(new Date(), "dd-MM-yyyy");
       addTask(task); // Call the addTask function from props to add the new task
       setTask({
+        id: "",
         date: "", // Set date back to an empty string after adding the task
         title: "",
         description: "",

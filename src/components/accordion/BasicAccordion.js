@@ -8,6 +8,10 @@ import Board from "../board/Board";
 import Form from "../tasks/Form";
 
 export default function BasicAccordion({ tasks, addTask }) {
+  const pendings = tasks.filter(taks => taks.status === 'pending');
+  const executings = tasks.filter(task => task.status === "executing");
+  const finisheds = tasks.filter(task => task.status === 'finished');
+
   return (
     <div>
       <Accordion>
@@ -32,7 +36,7 @@ export default function BasicAccordion({ tasks, addTask }) {
           <Typography>Kenban Board</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Board />
+          <Board pendings={pendings} executings={executings} finisheds={finisheds} />
         </AccordionDetails>
       </Accordion>
       {/* <Accordion disabled>
