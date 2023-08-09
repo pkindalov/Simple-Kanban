@@ -26,6 +26,7 @@ export default function ActionCard({
   onStatusChange,
   addTask,
   editTask,
+  deleteTask,
   style,
 }) {
   const modalStyle = {

@@ -20,6 +20,11 @@ function App() {
     setTasks(updatedTasks);
   };
 
+  const handleDelete = (deletedTask) => {
+    console.log('For deleting: ');
+    console.log(deletedTask);
+  }
+
   const handleStatusChange = (taskId, e) => {
     const newStatus = e.target.value;
     const updatedTasks = tasks.map((task) => {
@@ -40,6 +45,7 @@ function App() {
             tasks={tasks}
             addTask={addTask}
             editTask={editTask}
+            deleteTask={handleDelete}
             onStatusChange={handleStatusChange}
           />
         </Container>

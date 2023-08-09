@@ -11,6 +11,7 @@ export default function BasicAccordion({
   tasks,
   addTask,
   editTask,
+  deleteTask,
   onStatusChange,
 }) {
   const pendings = tasks.filter((taks) => taks.status === "pending");
@@ -55,6 +56,7 @@ export default function BasicAccordion({
             onStatusChange={onStatusChange}
             addTask={addTask}
             editTask={editTask}
+            deleteTask={deleteTask}
           />
         </AccordionDetails>
       </Accordion>

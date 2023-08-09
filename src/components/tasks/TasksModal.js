@@ -18,7 +18,6 @@ export default function TasksModal({ children }) {
         label="Edit"
         variant="outlined"
         onClick={handleOpen}
-        // onDelete={handleDelete}
         icon={<EditIcon />}
       />
       <Modal

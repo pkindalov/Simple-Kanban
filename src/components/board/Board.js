@@ -9,6 +9,7 @@ const Board = ({
   onStatusChange,
   addTask,
   editTask,
+  deleteTask,
 }) => {
   return (
     <Grid container spacing={2} justifyContent="center">
@@ -30,6 +31,7 @@ const Board = ({
                 onStatusChange={onStatusChange}
                 addTask={addTask}
                 editTask={editTask}
+                deleteTask={deleteTask}
               />
             );
           })}
@@ -52,6 +54,7 @@ const Board = ({
                 onStatusChange={onStatusChange}
                 addTask={addTask}
                 editTask={editTask}
+                deleteTask={deleteTask}
               />
             );
           })}
@@ -74,6 +77,7 @@ const Board = ({
                 onStatusChange={onStatusChange}
                 addTask={addTask}
                 editTask={editTask}
+                deleteTask={deleteTask}
               />
             );
           })}
