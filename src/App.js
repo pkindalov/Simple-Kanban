@@ -13,13 +13,12 @@ function App() {
   };
 
   const editTask = (editedTask) => {
-    const updatedTasks = tasks.map(task => {
-      if(task.id === editedTask.id) return editedTask;
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === editedTask.id) return editedTask;
       return task;
     });
     setTasks(updatedTasks);
-    
-  }
+  };
 
   const handleStatusChange = (taskId, e) => {
     const newStatus = e.target.value;

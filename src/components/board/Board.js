@@ -2,7 +2,14 @@ import React from "react";
 import { Grid } from "@mui/material";
 import ActionCard from "../tasks/ActionCard";
 
-const Board = ({ pendings, executings, finisheds, onStatusChange, addTask, editTask }) => {
+const Board = ({
+  pendings,
+  executings,
+  finisheds,
+  onStatusChange,
+  addTask,
+  editTask,
+}) => {
   return (
     <Grid container spacing={2} justifyContent="center">
       <Grid item xs={12} sm={4} style={{ backgroundColor: "#ff8080" }}>

@@ -41,7 +41,6 @@ export default function ActionCard({
     p: 4,
   };
 
-
   return (
     <Card sx={{ maxWidth: 345, ...style }}>
       <CardActionArea>
@@ -78,7 +77,7 @@ export default function ActionCard({
               addTask={addTask}
               editTask={editTask}
             />
-           
+
             {/* <Typography id="modal-modal-title" variant="h6" component="h2">
             Text in a modal
           </Typography>

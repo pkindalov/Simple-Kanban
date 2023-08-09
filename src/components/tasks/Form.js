@@ -8,9 +8,11 @@ import {
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
 import React, { useState } from "react";
+import SaveIcon from "@mui/icons-material/Save";
+import EditIcon from "@mui/icons-material/Edit";
 // import { format } from "date-fns";
 
-const Form = ({id, date, title, description, status, addTask, editTask }) => {
+const Form = ({ id, date, title, description, status, addTask, editTask }) => {
   const [task, setTask] = useState({
     id: id ? id : "",
     date: date ? date : "",
@@ -23,7 +25,7 @@ const Form = ({id, date, title, description, status, addTask, editTask }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     //TODO make validations here
-    if(isEditMode) {
+    if (isEditMode) {
       // console.log("must edit");
       editTask(task);
       return;
@@ -32,14 +34,14 @@ const Form = ({id, date, title, description, status, addTask, editTask }) => {
     if (task.title.trim() !== "") {
       task.id = window.crypto.randomUUID();
       // if (!task.date) task.date = format(new Date(), "dd/MM/yyyy");
-      addTask(task); 
+      addTask(task);
       setTask({
         id: "",
         date: "",
         title: "",
         description: "",
         status: "pending",
-      }); 
+      });
     }
   };
 
@@ -107,7 +109,12 @@ const Form = ({id, date, title, description, status, addTask, editTask }) => {
           />
         </Box>
         <Box mt={2}>
-          <Button type="submit" variant="contained">
+          <Button
+            icon={isEditMode ? <EditIcon /> : <SaveIcon />}
+            type="submit"
+            variant="contained"
+          >
+            {isEditMode ? <SaveIcon /> : <EditIcon />}
             {isEditMode ? "Save Changes" : "Create"}
           </Button>
         </Box>

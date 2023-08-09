@@ -7,7 +7,12 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Board from "../board/Board";
 import Form from "../tasks/Form";
 
-export default function BasicAccordion({ tasks, addTask, editTask, onStatusChange }) {
+export default function BasicAccordion({
+  tasks,
+  addTask,
+  editTask,
+  onStatusChange,
+}) {
   const pendings = tasks.filter((taks) => taks.status === "pending");
   const executings = tasks.filter((task) => task.status === "executing");
   const finisheds = tasks.filter((task) => task.status === "finished");
@@ -24,7 +29,14 @@ export default function BasicAccordion({ tasks, addTask, editTask, onStatusChang
         </AccordionSummary>
         <AccordionDetails>
           <Typography>Create a task from here:</Typography>
-          <Form id={""} date={new Date()} title={""} description={""} status={""} addTask={addTask} />
+          <Form
+            id={""}
+            date={new Date()}
+            title={""}
+            description={""}
+            status={""}
+            addTask={addTask}
+          />
         </AccordionDetails>
       </Accordion>
       <Accordion defaultExpanded={true}>
