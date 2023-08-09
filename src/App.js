@@ -12,6 +12,15 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
+  const editTask = (editedTask) => {
+    const updatedTasks = tasks.map(task => {
+      if(task.id === editedTask.id) return editedTask;
+      return task;
+    });
+    setTasks(updatedTasks);
+    
+  }
+
   const handleStatusChange = (taskId, e) => {
     const newStatus = e.target.value;
     const updatedTasks = tasks.map((task) => {
@@ -31,6 +40,7 @@ function App() {
           <BasicAccordion
             tasks={tasks}
             addTask={addTask}
+            editTask={editTask}
             onStatusChange={handleStatusChange}
           />
         </Container>

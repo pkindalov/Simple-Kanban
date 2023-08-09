@@ -3,23 +3,45 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import TasksModal from "./TasksModal";
 import {
-//   Button,
+  //   Button,
   CardActionArea,
   CardActions,
   Select,
   MenuItem,
+  Box,
+  // Button,
 } from "@mui/material";
+
+import Form from "./Form";
 
 export default function ActionCard({
   imgSrc,
   taskId,
+  date,
   title,
   description,
   status,
   onStatusChange,
+  addTask,
+  editTask,
   style,
 }) {
+  const modalStyle = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    textAlign: "center",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
+
+
   return (
     <Card sx={{ maxWidth: 345, ...style }}>
       <CardActionArea>
@@ -45,6 +67,26 @@ export default function ActionCard({
         </CardContent>
       </CardActionArea>
       <CardActions>
+        <TasksModal>
+          <Box sx={modalStyle}>
+            <Form
+              id={taskId}
+              date={date}
+              title={title}
+              description={description}
+              status={status}
+              addTask={addTask}
+              editTask={editTask}
+            />
+           
+            {/* <Typography id="modal-modal-title" variant="h6" component="h2">
+            Text in a modal
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </Typography> */}
+          </Box>
+        </TasksModal>
         {/* <Button size="small" color="primary">
           Save
         </Button> */}

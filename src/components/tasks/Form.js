@@ -8,23 +8,30 @@ import {
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
 import React, { useState } from "react";
-import { format } from "date-fns";
+// import { format } from "date-fns";
 
-const Form = ({ addTask }) => {
+const Form = ({id, date, title, description, status, addTask, editTask }) => {
   const [task, setTask] = useState({
-    id: "",
-    date: "",
-    title: "",
-    description: "",
-    status: "pending",
+    id: id ? id : "",
+    date: date ? date : "",
+    title: title ? title : "",
+    description: description ? description : "",
+    status: status ? status : "pending",
   });
+  const isEditMode = id;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     //TODO make validations here
+    if(isEditMode) {
+      // console.log("must edit");
+      editTask(task);
+      return;
+    }
+
     if (task.title.trim() !== "") {
       task.id = window.crypto.randomUUID();
-      if (!task.date) task.date = format(new Date(), "dd-MM-yyyy");
+      // if (!task.date) task.date = format(new Date(), "dd/MM/yyyy");
       addTask(task); 
       setTask({
         id: "",
@@ -37,11 +44,11 @@ const Form = ({ addTask }) => {
   };
 
   const handleDateChange = (date) => {
-    console.log(date);
-    const formattedDate = date
-      ? format(date, "dd-MM-yyyy")
-      : format(new Date(), "dd-MM-yyyy");
-    setTask({ ...task, date: formattedDate });
+    // console.log(date);
+    // const formattedDate = date
+    //   ? format(date, "dd/MM/yyyy")
+    //   : format(new Date(), "dd/MM/yyyy");
+    setTask({ ...task, date: date });
   };
 
   const handleInputChange = (e) => {
@@ -56,7 +63,7 @@ const Form = ({ addTask }) => {
           <DatePicker
             label="Select Date"
             name="date"
-            value={task.date ? new Date(task.date) : new Date()}
+            value={task.date ? task.date : new Date()}
             onChange={handleDateChange}
           />
         </Box>
@@ -101,7 +108,7 @@ const Form = ({ addTask }) => {
         </Box>
         <Box mt={2}>
           <Button type="submit" variant="contained">
-            Create
+            {isEditMode ? "Save Changes" : "Create"}
           </Button>
         </Box>
       </FormControl>
