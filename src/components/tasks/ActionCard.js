@@ -90,10 +90,12 @@ export default function ActionCard({
         </TasksModal>
 
         <TasksModal mode={"delete"}>
+          <Box sx={modalStyle}>
           <p>
             Do you really want to delete this task ?
             <Button onClick={(e) => deleteTask(e, taskId)}>Delete</Button>
           </p>
+          </Box>
         </TasksModal>
 
         {/* <Button size="small" color="primary">
