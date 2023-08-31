@@ -11,6 +11,7 @@ import {
   Select,
   MenuItem,
   Box,
+  Button,
   // Button,
 } from "@mui/material";
 
@@ -67,7 +68,7 @@ export default function ActionCard({
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <TasksModal>
+        <TasksModal mode={'edit'}>
           <Box sx={modalStyle}>
             <Form
               id={taskId}
@@ -78,6 +79,7 @@ export default function ActionCard({
               addTask={addTask}
               editTask={editTask}
             />
+           
 
             {/* <Typography id="modal-modal-title" variant="h6" component="h2">
             Text in a modal
@@ -87,6 +89,15 @@ export default function ActionCard({
           </Typography> */}
           </Box>
         </TasksModal>
+
+        <TasksModal mode={'delete'} >
+          <p>
+            Do you really want to delete this task ?
+            <Button onClick={e => deleteTask(e, taskId)}>Delete</Button>
+            </p>
+        </TasksModal>
+
+
         {/* <Button size="small" color="primary">
           Save
         </Button> */}

@@ -5,20 +5,23 @@ import * as React from "react";
 import Modal from "@mui/material/Modal";
 import { Chip } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function TasksModal({ children }) {
+export default function TasksModal({mode, children }) {
+  
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  // const mode = 'edit';
   // const handleDelete = () => {};
   return (
     <div>
       {/* <Button onClick={handleOpen}>Edit</Button> */}
       <Chip
-        label="Edit"
+        label={mode}
         variant="outlined"
         onClick={handleOpen}
-        icon={<EditIcon />}
+        icon={mode === "edit" ? <EditIcon /> : <DeleteIcon />}
       />
       <Modal
         open={open}

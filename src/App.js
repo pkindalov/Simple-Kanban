@@ -20,9 +20,9 @@ function App() {
     setTasks(updatedTasks);
   };
 
-  const handleDelete = (deletedTask) => {
-    console.log('For deleting: ');
-    console.log(deletedTask);
+  const handleDelete = (e, deletedTaskId) => {
+    const updatedTasks = tasks.filter(task => task.id !== deletedTaskId);
+    setTasks(updatedTasks);
   }
 
   const handleStatusChange = (taskId, e) => {
