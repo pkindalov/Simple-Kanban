@@ -21,9 +21,9 @@ function App() {
   };
 
   const handleDelete = (e, deletedTaskId) => {
-    const updatedTasks = tasks.filter(task => task.id !== deletedTaskId);
+    const updatedTasks = tasks.filter((task) => task.id !== deletedTaskId);
     setTasks(updatedTasks);
-  }
+  };
 
   const handleStatusChange = (taskId, e) => {
     const newStatus = e.target.value;
